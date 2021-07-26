@@ -1,0 +1,151 @@
+html{
+  height: 100%;
+}
+body{
+  font-family: Quicksand, Arial, sans-serif;
+  margin: 0;
+  height: 100%;
+  
+}
+
+#conteiner.ajax-forms.shown{
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  z-index: 10;
+}
+#header-top{
+  width: 100%;
+  height: 60px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+#header-top #center{
+  background-color: aqua;
+  width: 45%;
+  height: 100%;
+  margin-left: 25%;;
+}
+#search-box{
+  width: 100%;
+}
+#search-box #input{
+  width: 85%;
+  height: 32px;
+  border: 1px solid rgb(151, 151, 151);
+}
+#search-box #submit{
+  width: 15%;
+  border: 1px solid rgb(189, 189, 189);
+  border-left: none;
+}
+
+#header-top #end{
+  background-color: yellow;
+  width: 30%;
+  height: 100%;
+}
+#btn-account-manager{
+  height: 40px;
+  margin-left: 60%;
+}
+
+#conteiner.content{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 60%;
+  height: calc(100% - 65px);
+  margin: auto;
+  padding-top: 5px;
+  border-left: 1px solid rgb(219, 219, 219);
+  border-right: 1px solid rgb(219, 219, 219);
+  top: 60px;
+}
+#menu{
+  display: inline-block;
+  width: 15%;
+  height: 100%;
+  border-right: 1px solid rgb(219, 219, 219);
+}
+#menu > .button{
+  background-color: white;
+  height: 30px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  padding-left: 10px;
+}
+.menu-option{
+  display: flex;
+  height: 30px;
+  align-items: center;
+  padding-left: 5px;
+}
+.menu-option a{
+  font-size: 13.3333px;
+  text-decoration: none;
+  color: black;
+}
+.menu-option:hover{
+  cursor: pointer;
+  background-color: rgb(250, 250, 250);
+}
+#conteiner.main-content{
+  display: inline-block;
+  width: 80%;
+  height: 100%;
+  padding: 0 5%;
+}
+#produto.preview.main{
+  position: relative;
+  display: inline-flex;
+  background-color: white;
+  width: 100%;
+  height: 180px;
+  top: 3px;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid rgb(219, 219, 219);
+  transition: 0.1s ease-in;
+}
+#produto.preview.main:hover{
+  top: 0;
+  box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
+}
+#produto.preview.info-conteiner{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+#produto.preview.title{
+  display: inline;
+  width: 100%;
+  height: 23px;
+  margin: 0;
+}
+#produto.preview.desc{
+  height: 150px;
+  margin: 0;
+}
+#produto.preview.preco{
+  height: 70px;
+  margin: 0;
+  font-size: large;
+}
+#produto.botao.comprar:hover{
+  cursor: pointer;
+}
+#produto.botao.cart:hover{
+  cursor: pointer;
+}
+#produto.preview.image-conteiner{
+  background-color: brown;
+  width: 30%;
+  height: 100%;
+}

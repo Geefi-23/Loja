@@ -1,0 +1,40 @@
+
+#search-icon{
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+#search-icon .head{
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgb(138, 135, 135);
+  border-radius: 50%;
+}
+#search-icon .body{
+  width: 2px;
+  height: 10px;
+  background-color: rgb(138, 135, 135);
+  transform: translate(8px, -3px) rotate(-40deg);
+}
+
+#account-icon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 3px;
+}
+#account-icon .head{
+  width: 15px;
+  height: 15px;
+  background-color: rgb(177, 177, 177);
+  border-radius: 50%;
+}
+#account-icon .body{
+  width: 20px;
+  height: 10px;
+  background-color: rgb(177, 177, 177);
+  border-radius: 50%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
