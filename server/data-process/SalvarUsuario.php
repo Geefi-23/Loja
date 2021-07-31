@@ -2,8 +2,8 @@
   require '../dao/UsuarioDAO.php';
   //require '../entitys/Usuario.php';
   $dados = json_decode(file_get_contents('php://input'));
-  saveAccount($dados);
 
+  saveAccount($dados);
 
   function saveAccount($data){
     if (!isDataValid($data))
@@ -23,7 +23,7 @@
   function isDataValid($data){
     $regex = [
       'nome' => "/^[a-zA-Z]{6,20}$/",
-      'email' => "/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/",
+      'email' => "/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+%40[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/",
       'senha' => "/^.{6,16}$/"
     ];
     if (preg_match($regex['nome'], $data->nome) && preg_match($regex['email'], $data->email) 

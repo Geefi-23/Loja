@@ -1,31 +1,26 @@
-window.onload = function(){
-  let form = document.querySelector('#auth-form')
-  form.addEventListener('submit', authUser)
-}
+import request from './modules/ajax-request.js'
 
-function authUser(ev){
-  ev.preventDefault()
-  let xhr = new XMLHttpRequest()
-  let email = document.querySelector('#auth-form__in-email')
-  let senha = document.querySelector('#auth-form__in-senha')
-
-  let responset = document.querySelector('#auth-responsetext')
-  let dados = {
-    'email': email.value,
-    'senha': senha.value
-  }
-  console.log(dados)
-  xhr.open('POST', 'server/data-process/AutenticarUsuario.php')
-  xhr.setRequestHeader('Content-Type', 'application/json')
-  xhr.send(JSON.stringify(dados))
-  xhr.onerror = function(){
-    responset.innerHTML = xhr.statusText
-  }
-  xhr.onreadystatechange = function(){
-    if (xhr.readyState === xhr.DONE && xhr.status === 200){
-      if (xhr.responseText === 'index')
-        location.href = ''
-      responset.innerHTML = xhr.responseText
+$(document).ready(function(){
+  let form = $('#auth-form')
+  let email = form.find('#email')
+  let senha = form.find('#senha')
+  form.on('submit', function(e){
+    e.preventDefault()
+    let dados = {
+      'email': email.val(),
+      'senha': senha.val()
     }
-  }
+    authUser(JSON.stringify(dados))
+  })
+})
+
+function authUser(data){
+  request('POST', 'server/data-process/AutenticarUsuario.php', data,
+  function(res){
+    let responset = $('#auth-responsetext')
+    if (res != 'index')
+      return responset.html(res)
+    location.href = ''
+    
+  }, null)
 }

@@ -1,0 +1,86 @@
+html{
+  height: 100%;
+}
+body{
+  font-family: Quicksand, Arial, sans-serif;
+  margin: 0;
+  height: 100%;
+  font-size: 0;
+}
+
+ .text{
+  font-size: 1rem;
+}
+ .text-end{
+  text-align: end;
+ }
+ .font-0{
+   font-size: 0;
+ }
+#conteiner.ajax-forms.shown{
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  z-index: 10;
+}
+
+#main-container{
+  width: 60%;
+  min-height: 100%;
+  padding: 0;
+  padding-top: 70px;
+}
+
+#conteiner.main-content{
+  display: inline-block;
+  width: 80%;
+  height: 100%;
+  padding: 0 5%;
+}
+.produto-preview{
+  position: relative;
+  display: inline-flex;
+  background-color: white;
+  width: 100%;
+  height: 180px;
+  top: 3px;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid rgb(219, 219, 219);
+  transition: 0.1s ease-in;
+}
+.produto-preview:hover{
+  top: 0;
+  box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
+}
+.produto-preview .info{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.produto-preview .title{
+  width: 100%;
+  margin: 0;
+}
+.produto-preview .desc{
+  height: 150px;
+  margin: 0;
+}
+.produto-preview .preco{
+  height: 70px;
+  margin: 0;
+  font-size: large;
+}
+.produto-preview .btn-buy:hover, .produto-preview .btn-cart:hover{
+  cursor: pointer;
+}
+#produto.preview.image-conteiner{
+  background-color: brown;
+  width: 30%;
+  height: 100%;
+}

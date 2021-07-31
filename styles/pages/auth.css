@@ -29,13 +29,19 @@ a{
   display: inline-flex;
   flex-direction: column;
 }
-#auth-form__in-nome, #auth-form__in-email, 
-#auth-form__in-datanasc, #auth-form__in-senha{
-  height: 30px;
+#nome, #email, 
+#datanasc, #senha{
+  height: 35px;
   margin-top: 7px;
+  padding: 10px;
   border: 1px solid rgb(187, 187, 187);
+  transition: border 0.2s;
 }
-#auth-form__in-submit{
+#nome:focus, #email:focus, 
+#datanasc:focus, #senha:focus{
+  border-color: rgb(110, 110, 110);
+}
+#submit{
   background-color: rgb(41, 224, 41);
   color: white;
   font-weight: bold;
@@ -47,10 +53,10 @@ a{
   margin-top: 7px;
   margin-left: 70%;
 }
-#auth-form__in-submit:hover{
+#submit:hover{
   cursor: pointer;
 }
-#auth-form__in-submit:disabled{
+#submit:disabled{
   opacity: 0.5;
 }
 #auth-links{
