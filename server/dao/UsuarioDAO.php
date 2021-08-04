@@ -1,5 +1,5 @@
 <?php
-  require '../entitys/Usuario.php';
+  require_once 'server/entities/Usuario.php';
   require 'Conexao.php';
   class UsuarioDAO{
     private $db;
@@ -11,12 +11,15 @@
       $sql = "SELECT * FROM usuarios";
       $query = $this->db->prepare($sql);
       $query->execute();
-      return $query->fetchAll();
+      $users = [];
+      foreach($query->fetchAll() as $arr){
+        array_push($users, Usuario::convertArr($arr));
+      }
+      return $users;
     }
     public function save($usuario){
       if (!($usuario instanceof Usuario)){
         throw new Exception('O argumento não é uma instancia da classe Usuario');
-        
       }
       $sql = "INSERT INTO usuarios(nome, email, data_nascimento, senha) VALUES(?, ?, ?, ?)";
       $query = $this->db->prepare($sql);

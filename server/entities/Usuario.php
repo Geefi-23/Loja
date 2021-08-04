@@ -7,6 +7,7 @@
     private $senha;
 
     public function __construct(){}
+
     public function getId(){
       return $this->id;
     }
@@ -23,28 +24,30 @@
       return $this->senha;
     }
 
-    public function setId($id){
+    public function setId(int $id){
       $this->id = $id;
     }
-    public function setNome($nome){
+    public function setNome(string $nome){
       $this->nome = $nome;
     }
-    public function setEmail($email){
+    public function setEmail(string $email){
       $this->email = $email;
     }
-    public function setDataNascimento($dataNascimento){
+    public function setDataNascimento(string $dataNascimento){
       $this->dataNascimento = $dataNascimento;
     }
-    public function setSenha($senha){
+    public function setSenha(string $senha){
       $this->senha = $senha;
     }
 
-    public function convertArr($array){
-      $this->id = $array['id'];
-      $this->nome = $array['nome'];
-      $this->email = $array['email'];
-      $this->dataNascimento = $array['data_nascimento'];
-      $this->senha = $array['senha'];
+    public static function convertArr(Array $array){
+      $user = new Usuario();
+      $user->id = $array['id'];
+      $user->nome = $array['nome'];
+      $user->email = $array['email'];
+      $user->dataNascimento = $array['data_nascimento'];
+      $user->senha = $array['senha'];
+      return $user;
     }
   }
 ?>

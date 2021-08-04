@@ -14,15 +14,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/pages/index.css">
   <link rel="stylesheet" href="styles/components/header.css">
+  <link rel="stylesheet" href="styles/components/dialogs.css">
   <link rel="stylesheet" href="styles/components/notification.css">
   <link rel="stylesheet" href="styles/components/menu.css">
+  <link rel="stylesheet" href="styles/components/main.css">
   <link rel="stylesheet" href="styles/icons/icons.css">
   <link href="styles/bootstrap-5/css/bootstrap.css" rel="stylesheet">
   <script src="js/index.js" type="module"></script>
   <title>Loja</title>
 </head>
 <body>
-  <div id="conteiner-responses"></div>
+  <div id="dialogs-container"></div>
   <?php require 'components/header.php'?>
   <section style="height: 100%">
     <div id="notifications-container"></div>
@@ -32,6 +34,7 @@
         <?php 
           $produtodao = new ProdutoDAO();
           $allProducts = $produtodao->listAll();
+          echo var_dump($allProducts);
           foreach($allProducts as $produto):
         ?>
         <div class="produto-preview">

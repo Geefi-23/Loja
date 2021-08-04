@@ -24,6 +24,7 @@ let configs = (function(){
       e.preventDefault()
       request('GET', '../../server/ajax-pages/minhas-vendas.html', null,
       function(res){
+        main.mainContent.html('')
         main.mainContent.html(res)
       },
       function(xhr, text, errorText){

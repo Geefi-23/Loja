@@ -1,5 +1,19 @@
 <header id="header-top">
-  <div class="container d-flex flex-row h-100 p-0">
+  <div id="container" class="d-flex flex-row h-100 p-0">
+    <div id="start">
+      <div id="container-optbtn">
+        <button id="btn-menu-dropdown-toggle" class="dropdown h-100 text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          OPCOES
+        </button>
+        <div id="menu-dropdown" class="dropdown-menu dropdown-menu-left rounded-0">
+          <ul id="list" class="p-0">
+            <li class="menu-option"><a href="index.php">Inicio</a></li>
+            <li class="menu-option"><a>Mais vendidos</a></li>
+            <li class="menu-option"><a>Categorias</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <div id="center" class="d-flex align-items-center">
       <form id="search-box" class="d-inline-flex flex-row ai-center text" action="search.php" method="GET">
         <input id="input" class="ps-2" type="text" name="q" placeholder="Pesquisar">

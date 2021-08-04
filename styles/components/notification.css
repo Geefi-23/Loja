@@ -1,9 +1,8 @@
 #notifications-container{
-  position: absolute;
+  position: fixed;
   float: left;
   top: 60px;
   width: 19%;
-  height: 700px;
 }
 .notification{
   display: none;

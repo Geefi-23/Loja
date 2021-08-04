@@ -1,5 +1,6 @@
 import request from '../ajax-request.js'
 import productView from './product-view.configs.js'
+import dialogs from './dialogs.js'
 
 var configs = (function(){
 
@@ -7,6 +8,7 @@ var configs = (function(){
 
   let init = function(){
     buttonSee.click(function(e){
+      let loader = dialogs.dispatchLoader()
       e.preventDefault()
       history.pushState('Produto', 'titulo', e.target.href)
       let data = {}
@@ -23,6 +25,7 @@ var configs = (function(){
         let cont_res = $('#main-content')
         cont_res.html($(res).find('#produto-view'))
         productView.init()
+        loader.close()
       }, null)
     })
   }

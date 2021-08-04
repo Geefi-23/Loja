@@ -4,5 +4,6 @@
 
   $dao = new ProdutoDAO();
     $produto = $dao->findById($_GET['id']);
-  echo "{\"nome\":\"".$produto['nome']."\",\"descricao\":\"".$produto['descricao']."\",\"categoria\":\"".$produto['categoria']."\",\"preco\":\"".$produto['preco']."\"}"
+  echo "{\"id\":\"".$produto['id']."\",\"nome\":\"".$produto['nome']."\",\"descricao\":\"".$produto['descricao'].
+    "\",\"categoria\":\"".$produto['categoria']."\",\"preco\":\"".$produto['preco']."\"}"
 ?>

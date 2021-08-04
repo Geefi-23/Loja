@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="styles/icons/icons.css">
   <link rel="stylesheet" href="styles/components/header.css">
   <link rel="stylesheet" href="styles/components/notification.css">
+  <link rel="stylesheet" href="styles/components/main.css">
+  <link rel="stylesheet" href="styles/components/menu.css">
   <link href="styles/bootstrap-5/css/bootstrap.css" rel="stylesheet">
   <title>Loja</title>
 </head>
@@ -23,7 +25,7 @@
   <?php require 'components/header.php'?>
   <section style="height: 100%">
     <div id="notifications-container"></div>
-    <div id="main-conteiner" class="container d-flex flex-row">
+    <div id="main-container" class="container d-flex flex-row">
       <?php require 'components/menu.php'?>
       <div id="main-content" class="container px-5">
         <div id="produto-view" class="d-flex flex-column">
@@ -31,12 +33,18 @@
         <?php 
           $dao = new ProdutoDAO();
           $produto = $dao->findById($_GET['id']);
-          echo var_dump($_GET)
+          echo var_dump($_GET);
+          $GLOBALS['usuarios'] = 0;
         ?>
           <div id="imagem"></div>
           <h3><?php echo $produto['nome'] ?></h3>
           <span id="descricao" class="text"><?php echo $produto['descricao'] ?></span>
           <span id="preco" class="text"><?php echo $produto['preco'] ?></span>
+          <div id="container-manager-qtd" class="text">
+            <button id="back" class="rounded-btn"><</button>
+            <span id="container-qtd">1</span>
+            <button id="forward" class="rounded-btn">></button>
+          </div>
           <div>
             <?php if (isset($_SESSION['usuario'])): ?>
             <button class="btn-buy btn btn-primary">Comprar</button>

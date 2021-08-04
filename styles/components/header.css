@@ -8,11 +8,20 @@
   z-index: 10;
   box-shadow: 0px 5px 5px rgb(0, 0, 0, 0.1);
 }
+
+#header-top #start{
+  width: 25%;
+  height: 100%;
+  background-color: bisque;
+}
+#container-optbtn{
+  display: none
+}
+
 #header-top #center{
   background-color: white;
   width: 45%;
   height: 100%;
-  margin-left: 25%;;
 }
 #search-box{
   width: 100%;
@@ -28,6 +37,7 @@
   border-left: none;
 }
 
+
 #header-top #end{
   background-color: white;
   width: 30%;
@@ -38,4 +48,20 @@
   height: 40px;
   width: 120px;
   margin-left: 60%;
+}
+@media only screen and (max-width: 1050px){
+  #container-optbtn{
+    display: block;
+  }
+  #header-top{
+    padding: 0px 10px ;
+  }
+}
+
+@media screen and (max-width: 680px){
+  #btn-toggle-account-manager{
+    font-size: 0;
+    width: 40px;
+    justify-content: center;
+  }
 }

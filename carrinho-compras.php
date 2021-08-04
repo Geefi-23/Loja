@@ -12,58 +12,43 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/pages/index.css">
   <link rel="stylesheet" href="styles/components/header.css">
   <link rel="stylesheet" href="styles/components/menu.css">
   <link rel="stylesheet" href="styles/components/notification.css">
+  <link rel="stylesheet" href="styles/components/dialogs.css">
+  <link rel="stylesheet" href="styles/components/main.css">
   <link rel="stylesheet" href="styles/icons/icons.css">
-  <link rel="stylesheet" href="styles/products-list.css">
   <link href="styles/bootstrap-5/css/bootstrap.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="js/index.js" type="module"></script>
   <title>Loja</title>
 </head>
 <body>
-  <div id="conteiner-responses"></div>
+  <div id="dialogs-container"></div>
   <?php require 'components/header.php'?>
   <section style="height: 100%">
     <div id="notifications-container"></div>
     <div id="main-container" class="container d-flex flex-row">
       <?php require 'components/menu.php'?>
       <div id="main-content" class="container px-5">
-        <button id="clear" class="text" onclick="localStorage.removeItem('buyCart')">
-          Limpar carrinho de compras
-        </button>
-        <table class="text" border="1" id="tabela-cart" class="list">
-          <tr>
-            <th>Nome</th>
-            <th>Descricao</th>
-            <th>Categoria</th>
-            <th>Preco</th>
-          </tr>
-        </table>
+        <link rel="stylesheet" href="styles/products-list.css">
+        <div class="d-flex justify-content-between">
+          <button id="clear" class="text">Limpar carrinho de compras</button>
+          <button id="remove" class="btn btn-danger text" disabled>Remover</button>
+        </div>
+        
+        <div class="container text p-4" id="product-list">
+          <div class="row">
+            <div class="col col-sm-1"></div>
+            <div class="col">Nome</div>
+            <div class="col">Categoria</div>
+            <div class="col">Preco</div>
+            <div class="col col-sm-1"></div>
+          </div>
+        </div>
         <script type="module">
-          import notify from './js/modules/components/notifys.js'
-          document.getElementById('clear').onclick = function(){
-            localStorage.removeItem('buyCart')
-            $('#tabela-cart').html('<tr>\
-                                  <th>Nome</th>\
-                                  <th>Descricao</th>\
-                                  <th>Categoria</th>\
-                                  <th>Preco</th>\
-                                </tr>')
-            notify.dispatch('Carrinho de compras apagado')
-          }
-          let carrinho = JSON.parse(localStorage.getItem('buyCart'))
-          if (carrinho != null)
-            carrinho.forEach(function(produto){
-              $('#tabela-cart').html($('#tabela-cart').html() + `<tr>\
-                                    <td>${produto.nome}</td>\
-                                    <td>${produto.descricao}</td>\
-                                    <td>${produto.categoria}</td>\
-                                    <td>${produto.preco}</td>
-                                  </tr>`)
-            })
+          import cart from './js/carrinho-compras.page.js'
+          cart.load()
         </script>
       </div>
     </div>

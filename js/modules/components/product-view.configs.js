@@ -2,12 +2,32 @@ import notifys from './notifys.js'
 import request from '../ajax-request.js'
 
 export default (function(){
+  let container
+  let btnWishList
+  let btnBuy
+  let btnQtdForward
+  let btnQtdBack
+  let qtdContainer
+  const qtdCountMin = 1
+  const qtdCountMax = 5
+  let qtdCount = qtdCountMin
+
   function init(){
+    loadElements()
+    configElements()
+  }
+  function loadElements(){
+    container = $('#produto-view')
 
-    let buttonWishList = $('.btn-wishlist')
-    let buttonBuy = $('.btn-buy')
-
-    buttonBuy.click(function(){
+    btnWishList = container.find('.btn-wishlist')
+    btnBuy = container.find('.btn-buy')
+    btnQtdForward = container.find('#forward')
+    btnQtdBack = container.find('#back')
+    qtdContainer = container.find('#container-qtd')
+    qtdCount
+  }
+  function configElements(){
+    btnBuy.click(function(){
       //pega os parametros da url
       let data = {}
       let url = location.search.slice(1)
@@ -32,13 +52,13 @@ export default (function(){
       }, null)
       
       $(this).prop('disabled', true)
-      notifys.dispatch('Você comprou esse item!')
+      notifys.dispatch('Você adicionou esse item ao carrinho de compras!')
       setTimeout(() => {
         $(this).prop('disabled', false)
       }, 4000);
     })
 
-    buttonWishList.click(function(){
+    btnWishList.click(function(){
       //pega os parametros da url
       let data = {}
       let url = location.search.slice(1)
@@ -68,8 +88,18 @@ export default (function(){
         $(this).prop('disabled', false)
       }, 4000);
     })
-  }
 
+    btnQtdForward.click(function(){
+      if (qtdCount != qtdCountMax)
+        qtdCount++
+      qtdContainer.html(qtdCount)
+    })
+    btnQtdBack.click(function(){
+      if (qtdCount != qtdCountMin)
+        qtdCount--
+      qtdContainer.html(qtdCount)
+    })
+  }
   return {
     init
   }
